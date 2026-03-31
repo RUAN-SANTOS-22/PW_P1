@@ -1,0 +1,67 @@
+<h1>Vitrine</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div *ngFor="let obj of lista" class="card  col-sm-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 d-flex flex-column p-0">
+            <div class="card-body d-flex flex-column ">
+            <img src="{{obj.codigo}}.png" class="card-img-top mt-1 img-fluid" (click)="redirecionar(obj);"><br>
+                <div class="card-title mt-auto">{{obj.nome}}</div>
+                <div class="card-text" *ngIf="obj.promo>=obj.valor">por: R$ {{obj.valor}} </div>
+                <div class="card-text" *ngIf="obj.promo<obj.valor">de: R$ {{obj.valor}}<br> por: R$ {{obj.promo}}</div><br>
+                <div class="d-flex align-self-center">
+                    <button *ngIf="obj.quantidade>0" class="btn btn-outline-dark ps-5 pe-5" (click)="adicionarItemCesta(obj)">Comprar</button>
+                </div>
+                <h4 class= "align-self-center"*ngIf="obj.quantidade<=0">Sem Estoque</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <h4>{{mensagem}}</h4>
+<div class="row">
+@for (obj of lista; track obj.codigo) {
+    <div class="card col-md-3 col-sm-12 col-xl-2" width="400px">
+        <h4 class="card-title">{{obj.nome}}</h4>
+        <img src="produto_{{obj.codigo}}.jpg" class="card-img-top" 
+        width="150px" height="150px" (click)="redirecionar(obj);"><br>
+       <div class="card-text">
+        @if(obj.promo<obj.valor){
+            de: <s>R$ {{obj.valor}}</s> <br>
+            por: R$ {{obj.promo}}
+        } @else {
+            R$ {{obj.valor}}
+        }<br>
+        @if(obj.quantidade > 0){
+            <button class="btn btn-outline-success" (click)="adicionarItemCesta(obj);">Comprar</button>
+        } @else {
+            <b>Sem Estoque</b>  
+        }
+        </div>
+    </div>
+}
+</div> -->
+
+
+<!-- codigo do prof 
+<h4>{{mensagem}}</h4>
+<div class="row">
+@for (obj of lista; track obj.codigo) {
+    <div class="card col-md-3 col-sm-12 col-xl-2" width="400px">
+        <h4 class="card-title">{{obj.nome}}</h4>
+        <img src="produto_{{obj.codigo}}.jpg" class="card-img-top" 
+        width="150px" height="150px" (click)="redirecionar(obj);"><br>
+       <div class="card-text">
+        @if(obj.promo<obj.valor){
+            de: <s>R$ {{obj.valor}}</s> <br>
+            por: R$ {{obj.promo}}
+        } @else {
+            R$ {{obj.valor}}
+        }<br>
+        @if(obj.quantidade > 0){
+            <button class="btn btn-outline-success" (click)="adicionarItemCesta(obj);">Comprar</button>
+        } @else {
+            <b>Sem Estoque</b>  
+        }
+        </div>
+    </div>
+}
+</div> -->

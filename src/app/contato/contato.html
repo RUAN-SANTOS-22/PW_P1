@@ -1,0 +1,36 @@
+<div class="conteiner bg-light mt-5 pt-4 ps-3">
+    
+        <h3 >Fale Conosco</h3>
+        <p>
+            Ola seja bem vindo a nossa loja virtual, qualquer
+            duvida estamos a disposição, entre contato pelo
+            formulario abaixo:
+        </p>
+    
+    <div class="row align-items-start">
+        <div class="card col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 p-4 m-4 ">
+            nome: <input type="text" class="form-control" [(ngModel)]="obj.nome" placeholder="digite seu nome completo" />
+            <br>
+            email:<input type="email"  class="form-control" [(ngModel)]="obj.email" placeholder="informe seu email correto!" />
+            <br>
+            assunto:<select class="form-control" [(ngModel)]="obj.assunto">
+                <option>Duvidas com produtos</option>
+                <option>Duvidas com pedidos</option>
+                <option>Problemas gerais</option>
+                <option>Criticas e sugestões</option>
+            </select><br>
+            mensagem:<textarea class="form-control" [(ngModel)]="obj.mensagem"></textarea>
+            <br>
+            Desejo receber uma copia desse email
+            <input type="checkbox" class="align-self-start ms-1" [(ngModel)]="obj.copia">
+            <br><br>
+            <div class="d-flex align-self-center">
+                <button class="btn btn-outline-dark" (click)="enviar();" >Enviar</button>
+            </div>
+        </div>
+        <div class="col-auto align-self-center">
+            <h4 >{{alerta}}</h4><br><br>
+        </div>
+    </div>
+       
+</div>

@@ -1,0 +1,22 @@
+.card-img-top {
+  height: 400px;
+  object-fit: contain; /* preenche tudo (pode cortar um pouco) */
+}
+
+/* @media (max-width: 1400px) {
+  .card-img-top {
+    height: 270px;
+    object-fit: cover;
+  }
+} 
+@media (max-width: 992px) {
+  .card-img-top {
+    height: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-img-top {
+    height: 120px;
+  }
+} */

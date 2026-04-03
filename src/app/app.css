@@ -1,0 +1,11 @@
+#nav-bar{
+    background-color: rgb(20, 52, 27);
+}
+
+#rodape{
+    background-color: rgb(30, 75, 40);
+}
+#collapsibleNavbar .navbar-nav {
+    justify-content: space-evenly !important;
+    width: 100%;
+  }

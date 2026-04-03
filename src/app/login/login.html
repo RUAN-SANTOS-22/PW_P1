@@ -1,0 +1,37 @@
+<!-- login.html -->
+<div class="container bg-light vh-100 mt-5 pt-4 ps-3 pb-4">
+    <h2>Login</h2>
+    <p>Preencha os campos para fazer o login.</p>
+    
+    <h4>{{mensagem}}</h4>
+    
+    <div class="row">
+        <div class="card col-sm-12 col-md-6 p-4">
+            email: 
+            <input type="email" class="form-control mb-2" [(ngModel)]="email" placeholder="seu email cadastrado" />
+            <br>
+            senha: 
+            <input type="password" class="form-control mb-2" [(ngModel)]="senha" placeholder="sua senha" />
+            <br>
+            <div class="d-flex gap-3">
+                <button class="btn btn-outline-dark" (click)="entrar()">Entrar</button>
+                <a href="cadastro">cadastrar-se</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <h3 style="font-size:50px;">Login</h3>
+preencha os campos para fazer o login.
+<br>
+<h4 style="font-size:50px;">{{mensagem}}</h4><br>
+
+email: <input type="email" id="email" placeholder="seu email cadastrado" />
+<br>
+senha: <input type="password" id="senha" placeholder="sua senha" />
+<br>
+lembrar-me: <input type="checkbox" id="lembrar">
+<br>
+<button (click)="entrar()">Entrar</button>
+<br><br>
+<a href="cadastro/">cadastrar-se</a> -->

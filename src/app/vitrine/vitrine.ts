@@ -13,97 +13,122 @@ export class Vitrine {
     lista : Produto[] = [
   {
     "codigo": 1,
-    "nome": "Furadeira de Impacto 750W",
-    "descritivo": "Furadeira de impacto com velocidade variável e função reversível, ideal para concreto, madeira e metal.",
-    "valor": 299.90,
-    "promo": 249.90,
-    "quantidade": 15,
-    "keywords": "furadeira, impacto, ferramenta, eletrica, construcao"
+    "nome": "Abacate",
+    "descritivo": "Abacate fresco e cremoso, rico em gorduras boas e vitaminas.",
+    "valor": 8.90,
+    "promo": 6.90,
+    "quantidade": 30,
+    "keywords": "abacate, fruta, saudavel, cremoso"
   },
   {
     "codigo": 2,
-    "nome": "Martelo Profissional 27mm",
-    "descritivo": "Martelo com cabo em fibra e cabeça em aço forjado para maior resistência.",
-    "valor": 49.90,
-    "promo": 39.90,
-    "quantidade": 40,
-    "keywords": "martelo, ferramenta, obra, construcao"
+    "nome": "Abacaxi",
+    "descritivo": "Abacaxi doce e suculento, fonte de vitamina C e antioxidantes.",
+    "valor": 7.50,
+    "promo": 5.90,
+    "quantidade": 25,
+    "keywords": "abacaxi, fruta, doce, suculento"
   },
   {
     "codigo": 3,
-    "nome": "Chave de Fenda 1/4",
-    "descritivo": "Chave de fenda com ponta magnética e cabo ergonômico antiderrapante.",
-    "valor": 19.90,
-    "promo": 14.90,
-    "quantidade": 60,
-    "keywords": "chave, fenda, ferramenta, manutencao"
+    "nome": "Alface",
+    "descritivo": "Alface crocante e fresca, ideal para saladas e sanduíches.",
+    "valor": 4.50,
+    "promo": 3.50,
+    "quantidade": 50,
+    "keywords": "alface, verdura, salada, fresco"
   },
   {
     "codigo": 4,
-    "nome": "Parafusadeira Elétrica 12V",
-    "descritivo": "Parafusadeira a bateria com controle de torque e carregador bivolt.",
-    "valor": 349.90,
-    "promo": 299.90,
-    "quantidade": 20,
-    "keywords": "parafusadeira, bateria, ferramenta, eletrica"
+    "nome": "Banana",
+    "descritivo": "Banana prata madura, rica em potássio e energia natural.",
+    "valor": 6.90,
+    "promo": 4.90,
+    "quantidade": 45,
+    "keywords": "banana, fruta, potassio, energia"
   },
   {
     "codigo": 5,
-    "nome": "Serra Circular 1400W",
-    "descritivo": "Serra circular potente ideal para cortes precisos em madeira e MDF.",
-    "valor": 599.90,
-    "promo": 529.90,
-    "quantidade": 12,
-    "keywords": "serra, circular, madeira, corte, ferramenta"
+    "nome": "Batata",
+    "descritivo": "Batata lisa e firme, perfeita para cozinhar, fritar ou assar.",
+    "valor": 5.90,
+    "promo": 4.50,
+    "quantidade": 60,
+    "keywords": "batata, legume, cozinha, fritar"
   },
   {
     "codigo": 6,
-    "nome": "Trena 5 Metros",
-    "descritivo": "Trena retrátil com trava automática e fita metálica resistente.",
-    "valor": 29.90,
-    "promo": 24.90,
-    "quantidade": 80,
-    "keywords": "trena, medicao, ferramenta, obra"
+    "nome": "Brocolis",
+    "descritivo": "Brócolis fresco, rico em vitaminas e fibras para uma alimentação saudável.",
+    "valor": 7.90,
+    "promo": 5.90,
+    "quantidade": 35,
+    "keywords": "brocolis, verdura, saudavel, vitaminas"
   },
   {
     "codigo": 7,
-    "nome": "Alicate Universal 8\"",
-    "descritivo": "Alicate universal em aço carbono com cabo isolado e ergonômico.",
-    "valor": 39.90,
-    "promo": 32.90,
-    "quantidade": 35,
-    "keywords": "alicate, ferramenta, eletrica, manutencao"
+    "nome": "Cebola",
+    "descritivo": "Cebola roxa firme e saborosa, essencial na culinária.",
+    "valor": 5.90,
+    "promo": 3.90,
+    "quantidade": 55,
+    "keywords": "cebola, legume, cozinha, tempero"
   },
   {
     "codigo": 8,
-    "nome": "Nível de Alumínio 60cm",
-    "descritivo": "Nível com estrutura em alumínio e três bolhas para medições precisas.",
-    "valor": 45.90,
-    "promo": 37.90,
-    "quantidade": 25,
-    "keywords": "nivel, medicao, obra, ferramenta"
+    "nome": "Cenoura",
+    "descritivo": "Cenoura doce e crocante, fonte de betacaroteno para a visão.",
+    "valor": 4.90,
+    "promo": 3.90,
+    "quantidade": 50,
+    "keywords": "cenoura, legume, vitamina, saude"
   },
   {
     "codigo": 9,
-    "nome": "Lixadeira Orbital 200W",
-    "descritivo": "Lixadeira orbital compacta ideal para acabamento em madeira e superfícies.",
-    "valor": 219.90,
-    "promo": 189.90,
+    "nome": "Laranja",
+    "descritivo": "Laranja pera suculenta, rica em vitamina C e antioxidantes.",
+    "valor": 5.90,
+    "promo": 4.50,
     "quantidade": 0,
-    "keywords": "lixadeira, orbital, acabamento, ferramenta"
+    "keywords": "laranja, fruta, vitamina, suco"
   },
   {
     "codigo": 10,
-    "nome": "Carrinho de Mão 65L",
-    "descritivo": "Carrinho de mão reforçado com caçamba metálica e pneu inflável.",
-    "valor": 279.90,
-    "promo": 279.90,
-    "quantidade": 10,
-    "keywords": "carrinho, mao, obra, construcao, transporte"
+    "nome": "Maca",
+    "descritivo": "Maçã fuji crocante e doce, perfeita para lanches e receitas.",
+    "valor": 9.90,
+    "promo": 7.90,
+    "quantidade": 40,
+    "keywords": "maca, fruta, crocante, doce"
+  },
+  {
+    "codigo": 11,
+    "nome": "Melancia",
+    "descritivo": "Melancia vermelha e doce, refrescante e hidratante.",
+    "valor": 12.90,
+    "promo": 9.90,
+    "quantidade": 20,
+    "keywords": "melancia, fruta, refrescante, doce"
+  },
+  {
+    "codigo": 12,
+    "nome": "Tomate",
+    "descritivo": "Tomate maduro e saboroso, ideal para saladas e molhos.",
+    "valor": 6.90,
+    "promo": 4.90,
+    "quantidade": 45,
+    "keywords": "tomate, legume, salada, molho"
+  },
+  {
+    "codigo": 13,
+    "nome": "Uva",
+    "descritivo": "Uva sem semente, doce e perfeita para consumo in natura ou sucos.",
+    "valor": 14.90,
+    "promo": 11.90,
+    "quantidade": 25,
+    "keywords": "uva, fruta, doce, suco"
   }
     ]; 
-
-
     redirecionar(obj:Produto){
       localStorage.setItem("ProdutoSelecionado", JSON.stringify(obj));
       location.href="detalhe";

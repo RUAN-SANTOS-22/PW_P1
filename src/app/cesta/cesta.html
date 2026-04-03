@@ -1,30 +1,35 @@
-<div *ngIf="mensagem.length>0" class="alert alert-warning">{{mensagem}}</div>
+<div class="conteiner min-vh-100">
 
-<table class="table table-stripped" *ngIf="lista.length>0">
-<thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">quantidade</th>
-      <th scope="col">valor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let obj of lista; let i = index">
-      <th scope="row">{{ i + 1 }}</th>
-      <!-- <th scope="row">1</th> -->
-      <td>{{obj.produto.nome}}</td>
-      <td>{{obj.quantidade}}</td>
-      <td>{{obj.valor | currency:'BRL'}}</td>
-      <!-- <td>{{obj.valor}}</td> -->
-    </tr>
-  </tbody>
-</table>
-<!-- {{total}} -->
-<h4>Total: {{ total | currency:'BRL' }}</h4>
-<br>
-<!-- <button class="btn btn-success" *ngIf="lista.length>0">Gravar pedido</button> -->
-<div *ngIf="lista.length>0">
+    <!-- class="d-flex flex-column min-vh-100" -->
+
+    
+    <table class="table table-stripped" *ngIf="lista.length>0">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">quantidade</th>
+          <th scope="col">valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let obj of lista; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <!-- <th scope="row">1</th> -->
+          <td>{{obj.produto.nome}}</td>
+          <td>{{obj.quantidade}}</td>
+          <td>{{obj.valor | currency:'BRL'}}</td>
+          <!-- <td>{{obj.valor}}</td> -->
+        </tr>
+      </tbody>
+    </table>
+    <!-- {{total}} -->
     <h4>Total: {{ total | currency:'BRL' }}</h4>
-    <button class="btn btn-success" (click)="finalizarPedido()">Finalizar Pedido</button>
+    <br>
+    <div *ngIf="mensagem.length>0" class="alert alert-warning">{{mensagem}}</div>
+    <!-- <button class="btn btn-success" *ngIf="lista.length>0">Gravar pedido</button> -->
+    <div *ngIf="lista.length>0">
+      <!-- <h4>Total: {{ total | currency:'BRL' }}</h4> -->
+        <button class="btn btn-success mt-2" (click)="finalizarPedido()">Finalizar Pedido</button>
+    </div>
 </div>

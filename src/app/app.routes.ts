@@ -4,6 +4,7 @@ import { Vitrine } from './vitrine/vitrine';
 import { CadastroCliente } from './cadastro-cliente/cadastro-cliente';
 import { Cesta } from './cesta/cesta';
 import { Detalhe } from './detalhe/detalhe';
+import { Login } from './login/login';
 
 export const routes: Routes = [
     {path:"cadastro", component:CadastroCliente},
@@ -11,5 +12,6 @@ export const routes: Routes = [
     {path:"vitrine", component:Vitrine},
     {path:"", component:Vitrine},
     {path:"cesta", component:Cesta},
-    {path:"detalhe", component:Detalhe}
+    {path:"detalhe", component:Detalhe},
+    {path:"login", component:Login}
 ];

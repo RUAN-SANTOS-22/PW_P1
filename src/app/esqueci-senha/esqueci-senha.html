@@ -1,7 +1,6 @@
-<!-- login.html -->
 <div class="container bg-light vh-100 mt-5 pt-4 ps-3 pb-4">
-    <h2>Login</h2>
-    <p>Preencha os campos para fazer o login.</p>
+    <h2>Esqueci a Senha</h2>
+    <p>Digite seu email para recuperar a senha.</p>
     
     <div class="row justify-content-center">
         <div class="card col-sm-10 col-md-8 col-lg-5 col-xl-5 col-xxl-5 p-4 m-4">
@@ -9,17 +8,11 @@
             email: 
             <input type="email" class="form-control mb-2" [(ngModel)]="email" placeholder="seu email cadastrado" />
             <br>
-            senha: 
-            <input type="password" class="form-control mb-2" [(ngModel)]="senha" placeholder="sua senha" />
-            <br>
             <div class="d-flex align-self-center">
-                <button class="btn btn-outline-dark" (click)="entrar()">Entrar</button>
+                <button class="btn btn-outline-dark" (click)="recuperar()">Recuperar</button>
             </div>
-            <a class="align-self-center" href="cadastro">cadastrar-se</a>
             <br>
-            <a href="esqueci-senha">esqueci minha senha</a>
+            <a class="align-self-center" href="login">Voltar para o login</a>
         </div>
     </div>
 </div>
-
-

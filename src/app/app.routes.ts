@@ -6,6 +6,7 @@ import { Cesta } from './cesta/cesta';
 import { Detalhe } from './detalhe/detalhe';
 import { Login } from './login/login';
 import { Busca } from './busca/busca'; 
+import { EsqueciSenha } from './esqueci-senha/esqueci-senha';
 
 export const routes: Routes = [
     {path:"cadastro", component:CadastroCliente},
@@ -15,5 +16,6 @@ export const routes: Routes = [
     {path:"cesta", component:Cesta},
     {path:"detalhe", component:Detalhe},
     {path:"login", component:Login},
-    {path:"busca", component:Busca}
+    {path:"busca", component:Busca},
+    {path:"esqueci-senha", component:EsqueciSenha}
 ];

@@ -1,0 +1,8 @@
+.card-img-top {
+  height: 400px;
+  object-fit: contain; /* preenche tudo (pode cortar um pouco) */
+}
+h1 {
+    text-align: center;
+    color: rgb(31, 62, 0);
+}

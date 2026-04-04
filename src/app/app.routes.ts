@@ -5,6 +5,7 @@ import { CadastroCliente } from './cadastro-cliente/cadastro-cliente';
 import { Cesta } from './cesta/cesta';
 import { Detalhe } from './detalhe/detalhe';
 import { Login } from './login/login';
+import { Busca } from './busca/busca'; 
 
 export const routes: Routes = [
     {path:"cadastro", component:CadastroCliente},
@@ -13,5 +14,6 @@ export const routes: Routes = [
     {path:"", component:Vitrine},
     {path:"cesta", component:Cesta},
     {path:"detalhe", component:Detalhe},
-    {path:"login", component:Login}
+    {path:"login", component:Login},
+    {path:"busca", component:Busca}
 ];

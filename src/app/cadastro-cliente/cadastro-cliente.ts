@@ -29,11 +29,4 @@ export class CadastroCliente {
     localStorage.setItem("cliente", json);
   }
 }
-  // gravar(){
-  //   this.mensagem = "O seu cadastro foi gravado com sucesso!";
-  //   let json = JSON.stringify(this.obj);
-  //   localStorage.setItem("cliente", json);
-  // }
 
-
-//}

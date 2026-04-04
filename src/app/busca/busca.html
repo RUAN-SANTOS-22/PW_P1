@@ -1,24 +1,25 @@
-<h1>Vitrine</h1>
-<div class="container">
+
+<h1>Resultado da Busca</h1>
+<div class="container min-vh-100">
+    <div *ngIf="mensagem" class="alert alert-warning">
+        {{mensagem}}
+    </div>
     <div class="row">
-        <div *ngFor="let obj of lista" class="card  col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-3">
-            <div class="card-body d-flex flex-column ">
-            <!-- <img src="{{obj.codigo}}.png" class="card-img-top mt-1 img-fluid" (click)="redirecionar(obj);"><br> -->
-             <!-- vitrine.html - só mudar o src da imagem -->
+        <div *ngFor="let obj of lista" class="card col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-3">
+            <div class="card-body d-flex flex-column">
                 <img src="{{obj.nome}}.png" 
                     class="card-img-top mt-1 img-fluid" 
                     style="height: 200px; object-fit: contain; cursor: pointer;"
                     (click)="redirecionar(obj);"
                     onerror="this.src='logo.png'"><br>
-                <div class="card-title mt-auto ">{{obj.nome}}</div>
+                <div class="card-title mt-auto">{{obj.nome}}</div>
                 <div class="card-text" *ngIf="obj.promo>=obj.valor">por: R$ {{obj.valor}} </div>
                 <div class="card-text" *ngIf="obj.promo<obj.valor">de: R$ {{obj.valor}}<br> por: R$ {{obj.promo}}</div><br>
                 <div class="d-flex align-self-center">
                     <button *ngIf="obj.quantidade>0" class="btn btn-outline-dark ps-5 pe-5" (click)="adicionarItemCesta(obj)">Comprar</button>
                 </div>
-                <h4 class= "align-self-center"*ngIf="obj.quantidade<=0">Sem Estoque</h4>
+                <h4 class="align-self-center" *ngIf="obj.quantidade<=0">Sem Estoque</h4>
             </div>
         </div>
     </div>
 </div>
-

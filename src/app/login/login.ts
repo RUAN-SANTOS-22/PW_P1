@@ -31,22 +31,3 @@ export class Login {
         }
     }
 }
-
-// import { Component } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { FormsModule } from '@angular/forms';
-// import { Router } from '@angular/router';
-
-// @Component({
-//   selector: 'app-login',
-//   imports: [CommonModule, FormsModule],
-//   templateUrl: './login.html',
-//   styleUrl: './login.css'
-// })
-// export class Login {
-//     public mensagem: String = "";
-
-//     public entrar(){
-//         this.mensagem = "Seja bem vindo ao site!";
-//     }
-// }

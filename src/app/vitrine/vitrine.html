@@ -10,7 +10,7 @@
                     style="height: 200px; object-fit: contain; cursor: pointer;"
                     (click)="redirecionar(obj);"
                     onerror="this.src='logo.png'"><br>
-                <div class="card-title mt-auto">{{obj.nome}}</div>
+                <div class="card-title mt-auto ">{{obj.nome}}</div>
                 <div class="card-text" *ngIf="obj.promo>=obj.valor">por: R$ {{obj.valor}} </div>
                 <div class="card-text" *ngIf="obj.promo<obj.valor">de: R$ {{obj.valor}}<br> por: R$ {{obj.promo}}</div><br>
                 <div class="d-flex align-self-center">

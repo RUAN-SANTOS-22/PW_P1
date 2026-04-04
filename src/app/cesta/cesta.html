@@ -1,8 +1,5 @@
-<div class="conteiner min-vh-100">
-
-    <!-- class="d-flex flex-column min-vh-100" -->
-
-    
+<h2>Carrinho</h2>
+<div class="container bg-light pt-4 mt-4 ps-3 pb-4 min-vh-100">
     <table class="table table-stripped" *ngIf="lista.length>0">
       <thead>
         <tr>
@@ -24,7 +21,7 @@
       </tbody>
     </table>
     <!-- {{total}} -->
-    <h4>Total: {{ total | currency:'BRL' }}</h4>
+    <h4 class="mt-5">Total: {{ total | currency:'BRL' }}</h4>
     <br>
     <div *ngIf="mensagem.length>0" class="alert alert-warning">{{mensagem}}</div>
     <!-- <button class="btn btn-success" *ngIf="lista.length>0">Gravar pedido</button> -->

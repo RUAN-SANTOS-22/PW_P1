@@ -1,27 +1,67 @@
-<div class="row">
-    <div class="col-12 display-4">{{obj.nome}}</div>
-    <div class="col-sm-12 col-md-6">
-        <img src="{{obj.nome}}.png" class="card-img-top" style="width: 600px; object-fit: contain;"><br>
-    </div>
-    <div class="col-sm-12 col-md-6">
-        {{obj.descritivo}}
+<h2>Detalhe </h2>
+<div class="container bg-light min-vh-100 mt-5 pt-2">
+    <div class="row justify-content-center align-items-top min-vh-100">
         
-        <div *ngIf="obj.promo < obj.valor; else precoNormal">
-            de: <s>R$ {{obj.valor}}</s> <br>
-            por: R$ {{obj.promo}}
+        <div class="col-12 text-center">
+            <h1 class="display-4">{{obj.nome}}</h1>
         </div>
-        <ng-template #precoNormal>
-            R$ {{obj.valor}}
-        </ng-template>
-        <br>
-        <div *ngIf="obj.quantidade > 0; else semEstoque">
-            <button class="btn btn-outline-success" (click)="adicionarItemCesta(obj)">Comprar</button>
+
+        <div class="col-sm-12 col-md-6 text-center">
+            <img src="{{obj.nome}}.png" class="img-fluid w-75" alt="{{obj.nome}}">
         </div>
-        <ng-template #semEstoque>
-            <b>Sem Estoque</b>
-        </ng-template>
+        
+        <div class="col-sm-12 col-md-6">
+            <p class="lead">{{obj.descritivo}}</p>
+            
+            <div *ngIf="obj.promo < obj.valor; else precoNormal" class="mt-3 ps-5">
+                <span class="text-decoration-line-through">de: R$ {{obj.valor}}</span><br>
+                <span class="fs-2 fw-bold">por: R$ {{obj.promo}}</span>
+            </div>
+            <ng-template #precoNormal>
+                <span class="fs-1 fw-bold">R$ {{obj.valor}}</span>
+            </ng-template>
+            
+            <div class="mt-4 text-center" *ngIf="obj.quantidade > 0; else semEstoque">
+                <button class="btn btn-outline-dark btn-lg px-5" (click)="adicionarItemCesta(obj)">Comprar</button>
+            </div>
+            <ng-template #semEstoque>
+                <div class="alert alert-warning mt-3">
+                    <b>Sem Estoque</b>
+                </div>
+            </ng-template>
+        </div>
+        
     </div>
 </div>
+
+<!-- <div class="container bg-light vh-100 mt-5 pt-4 ps-3 pb-">
+    <div class="row justify-content-center">
+        <div class="col-12 display-4 mb-2 ms-5">{{obj.nome}}</div>
+
+        <div class="col-sm-12 col-md-6">
+            <img src="{{obj.nome}}.png" class="card-img-top img-fluid ms-3" style="width: 400px; object-fit: contain;"><br>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            {{obj.descritivo}}
+            
+            <div *ngIf="obj.promo < obj.valor; else precoNormal">
+                de: <s>R$ {{obj.valor}}</s> <br>
+                por: R$ {{obj.promo}}
+            </div>
+            <ng-template #precoNormal>
+                R$ {{obj.valor}}
+            </ng-template>
+            <br>
+            <div *ngIf="obj.quantidade > 0; else semEstoque">
+                <button class="btn btn-outline-success" (click)="adicionarItemCesta(obj)">Comprar</button>
+            </div>
+            <ng-template #semEstoque>
+                <b>Sem Estoque</b>
+            </ng-template>
+        </div>
+    </div>
+
+</div> -->
 
 
 <!-- <div class="row">

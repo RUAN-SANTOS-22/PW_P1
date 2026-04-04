@@ -13,7 +13,7 @@ export class Login {
     public mensagem: String = "";
     public email: string = "";
     public senha: string = "";
-
+  
     public entrar(){
         let clienteJson = localStorage.getItem("cliente");
         

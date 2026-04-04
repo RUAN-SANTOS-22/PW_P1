@@ -1,32 +1,45 @@
 <h2>Carrinho</h2>
 <div class="container bg-light pt-4 mt-4 ps-3 pb-4 min-vh-100">
-    <table class="table table-stripped" *ngIf="lista.length>0">
+    <table class="table table-striped" *ngIf="lista.length>0">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nome</th>
-          <th scope="col">quantidade</th>
-          <th scope="col">valor</th>
+          <th scope="col">Quantidade</th>
+          <th scope="col">Valor Unitário</th>
+          <th scope="col">Subtotal</th>
+          <th scope="col">Ações</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let obj of lista; let i = index">
           <th scope="row">{{ i + 1 }}</th>
-          <!-- <th scope="row">1</th> -->
           <td>{{obj.produto.nome}}</td>
-          <td>{{obj.quantidade}}</td>
-          <td>{{obj.valor | currency:'BRL'}}</td>
-          <!-- <td>{{obj.valor}}</td> -->
+          <td>
+            {{obj.quantidade}}
+            <button class="btn btn-sm btn-outline-secondary ms-2" (click)="aumentarQuantidade(obj)">+</button>
+            <button class="btn btn-sm btn-outline-secondary ms-2" (click)="diminuirQuantidade(obj)">-</button>
+          </td>
+          <td>
+            <span *ngIf="obj.produto.promo < obj.produto.valor" class="text-success">
+              R$ {{ (obj.produto.promo < obj.produto.valor ? obj.produto.promo : obj.produto.valor) | number:'1.2-2' }}
+            </span>
+            <span *ngIf="obj.produto.promo >= obj.produto.valor">
+              R$ {{obj.produto.valor | number:'1.2-2'}}
+            </span>
+           </td>
+          <td>R$ {{obj.valor | number:'1.2-2'}}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="removerItem(i)">Remover</button>
+           </td>
         </tr>
       </tbody>
     </table>
-    <!-- {{total}} -->
-    <h4 class="mt-5">Total: {{ total | currency:'BRL' }}</h4>
+    <h4 class="mt-5">Total: R$ {{ total | number:'1.2-2' }}</h4>
     <br>
     <div *ngIf="mensagem.length>0" class="alert alert-warning">{{mensagem}}</div>
-    <!-- <button class="btn btn-success" *ngIf="lista.length>0">Gravar pedido</button> -->
-    <div *ngIf="lista.length>0">
-      <!-- <h4>Total: {{ total | currency:'BRL' }}</h4> -->
-        <button class="btn btn-success mt-2" (click)="finalizarPedido()">Finalizar Pedido</button>
+    <div *ngIf="lista.length>0"class="text-center mt-5">
+        <button class="btn btn-success mt-2 me-2" (click)="finalizarPedido()">Finalizar Pedido</button>
+        <button class="btn btn-danger mt-2" (click)="limparCesta()">Cancelar Compra</button>
     </div>
 </div>

@@ -9,6 +9,7 @@ import { ItemCesta } from '../model/item-cesta';
   templateUrl: './cesta.html',
   styleUrl: './cesta.css',
 })
+
 export class Cesta {
   mensagem: String = "";
   lista: ItemCesta[] = [];
@@ -30,6 +31,59 @@ export class Cesta {
       this.total = this.total + obj.valor;
     }
   }
+
+  getValorProduto(produto: Produto): number {
+    return produto.promo < produto.valor ? produto.promo : produto.valor;
+  }
+
+  aumentarQuantidade(item: ItemCesta){
+    item.quantidade++;
+    let valorUnitario = this.getValorProduto(item.produto);
+    item.valor = item.quantidade * valorUnitario;
+    this.atualizarCesta();
+  }
+
+  diminuirQuantidade(item: ItemCesta){
+    if(item.quantidade > 1){
+      item.quantidade--;
+      let valorUnitario = this.getValorProduto(item.produto);
+      item.valor = item.quantidade * valorUnitario;
+      this.atualizarCesta();
+    } else {
+      if(confirm("Deseja remover este item da cesta?")){
+        let index = this.lista.indexOf(item);
+        this.lista.splice(index, 1);
+        this.atualizarCesta();
+      }
+    }
+  }
+
+  removerItem(index: number){
+    if(confirm("Deseja remover este item da cesta?")){
+      this.lista.splice(index, 1);
+      this.atualizarCesta();
+    }
+  }
+
+  limparCesta(){
+    if(confirm("Tem certeza que deseja cancelar toda a compra?")){
+      localStorage.removeItem("cesta");
+      this.lista = [];
+      this.total = 0;
+      this.mensagem = "Compra cancelada!";
+    }
+  }
+
+  atualizarCesta(){
+    localStorage.setItem("cesta", JSON.stringify(this.lista));
+    this.calculaTotal();
+    if(this.lista.length == 0){
+      this.mensagem = "Sua cesta esta vazia!!!";
+      localStorage.removeItem("cesta");
+    }
+  }
+
+
   finalizarPedido() {
     // Salvar pedido no localStorage
     let pedido = {

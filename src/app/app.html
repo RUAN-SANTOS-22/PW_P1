@@ -1,28 +1,31 @@
 <header id="nav-bar" class="fixed-top">
   <nav class="navbar navbar-expand-sm navbar-dark">
-    <div class="container-fluid ps-5 pe-5">
-      <div class="row w-100">
-        <!-- Primeira linha: logo e pesquisa -->
-        <div class="row w-100 align-items-center">
-          <div class="col-auto">
+    <div class="container">
+      <div class="row w-100 align-items-center">
+        
+          <div class="col-3">
             <a class="navbar-brand" href="vitrine">
               <img src="logo.png" alt="Logo" style="width:80px;" class=""> 
             </a>
           </div>
-          <div class="col">
-            <form class="d-flex w-50">
+          <div class="col-6">
+            <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Pesquisar...">
               <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
+          </div>
+          <div class="col-3 text-end">
+            <a class="navbar-brand" href="login">
+              <img src="login.png" alt="Logo" style="width:40px;" class=""> 
+            </a>
           </div>
           <div class="col-auto">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
               <span class="navbar-toggler-icon"></span>
             </button>
           </div>
-        </div>
         
-        <!-- Segunda linha: menu -->
+      
         <div class="collapse navbar-collapse w-100 " id="collapsibleNavbar">
           <ul class="navbar-nav w-100 justify-content-start">
             <li class="nav-item">
@@ -47,13 +50,14 @@
     </div>
   </nav>
 </header>
+<div style="padding-top: 140px;"></div>
 <router-outlet />
-
-<div id="rodape" class="p-4 text-white text-center">
+<div id="rodape" class="p-4 text-white text-center mt-3">
   <footer>
     <p>Rodape</p>
   </footer>
 </div>
+
 
 <!-- <header id="nav-bar" class="fixed-top">
   <nav class="navbar navbar-expand-sm navbar-dark">

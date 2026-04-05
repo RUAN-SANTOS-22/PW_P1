@@ -1,35 +1,32 @@
-<h2>Detalhe </h2>
-<div class="container bg-light min-vh-100 mt-5 pt-2">
-    <div class="row justify-content-center align-items-top min-vh-100">
-        
-        <div class="col-12 text-center">
-            <h1 class="display-4">{{obj.nome}}</h1>
+<div class="container py-5 mt-5 min-vh-100">
+  <div class="card shadow">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-5 text-center">
+          <img src="{{obj.nome}}.png" class="img-fluid" style="max-height: 300px;" onerror="this.src='logo.png'">
         </div>
-
-        <div class="col-sm-12 col-md-6 text-center">
-            <img src="{{obj.nome}}.png" class="img-fluid w-75" alt="{{obj.nome}}">
+        <div class="col-md-7">
+          <h2>{{obj.nome}}</h2>
+          <p class="text-muted">{{obj.descritivo}}</p>
+          
+          <div *ngIf="obj.promo < obj.valor" class="mt-3">
+            <span class="text-decoration-line-through text-muted">De: R$ {{obj.valor | number:'1.2-2'}}</span><br>
+            <span class="fs-2 text-success fw-bold">Por: R$ {{obj.promo | number:'1.2-2'}}</span>
+          </div>
+          <div *ngIf="obj.promo >= obj.valor" class="mt-3">
+            <span class="fs-2 text-success fw-bold">R$ {{obj.valor | number:'1.2-2'}}</span>
+          </div>
+          
+          <div class="mt-4">
+            <button *ngIf="obj.quantidade>0" class="btn btn-success btn-lg px-5" (click)="adicionarItemCesta(obj)">
+              Comprar
+            </button>
+            <button *ngIf="obj.quantidade<=0" class="btn btn-secondary btn-lg px-5" disabled>
+              Sem Estoque
+            </button>
+          </div>
         </div>
-        
-        <div class="col-sm-12 col-md-6">
-            <p class="lead">{{obj.descritivo}}</p>
-            
-            <div *ngIf="obj.promo < obj.valor; else precoNormal" class="mt-3 ps-5">
-                <span class="text-decoration-line-through">de: R$ {{obj.valor}}</span><br>
-                <span class="fs-2 fw-bold">por: R$ {{obj.promo}}</span>
-            </div>
-            <ng-template #precoNormal>
-                <span class="fs-1 fw-bold">R$ {{obj.valor}}</span>
-            </ng-template>
-            
-            <div class="mt-4 text-center" *ngIf="obj.quantidade > 0; else semEstoque">
-                <button class="btn btn-outline-dark btn-lg px-5" (click)="adicionarItemCesta(obj)">Comprar</button>
-            </div>
-            <ng-template #semEstoque>
-                <div class="alert alert-warning mt-3">
-                    <b>Sem Estoque</b>
-                </div>
-            </ng-template>
-        </div>
-        
+      </div>
     </div>
+  </div>
 </div>

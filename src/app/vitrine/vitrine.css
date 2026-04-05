@@ -1,27 +1,20 @@
-.card-img-top {
-  height: 400px;
-  object-fit: contain; /* preenche tudo (pode cortar um pouco) */
+.card {
+    border: 1px solid #ddd;
+    transition: transform 0.2s;
 }
 
-/* @media (max-width: 1400px) {
-  .card-img-top {
-    height: 270px;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.carousel-item img {
+    height: 180px;
     object-fit: cover;
-  }
-} 
-@media (max-width: 992px) {
-  .card-img-top {
-    height: 150px;
-  }
 }
 
 @media (max-width: 576px) {
-  .card-img-top {
-    height: 120px;
-  }
-} */
- h1{
-  text-align: center;
-  color: rgb(45, 87, 0);
- }
- 
+    .carousel-item img {
+        height: 140px;
+    }
+}

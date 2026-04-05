@@ -26,7 +26,8 @@
                   <span class="mx-2">{{obj.quantidade}}</span>
                   <button class="btn btn-sm btn-outline-secondary" (click)="aumentarQuantidade(obj)">+</button>
                 </td>
-                <td>R$ {{ (obj.produto.promo < obj.produto.valor ? obj.produto.promo : obj.produto.valor) | number:'1.2-2' }}</td>
+                <td>R$ {{ (obj.produto.promo < obj.produto.valor ? obj.produto.promo : obj.produto.valor) |
+                    number:'1.2-2' }}</td>
                 <td>R$ {{obj.valor | number:'1.2-2'}}</td>
                 <td><button class="btn btn-sm btn-danger" (click)="removerItem(i)"> X </button></td>
               </tr>
@@ -34,12 +35,12 @@
           </table>
         </div>
       </div>
-      
+
       <ng-template #vazio>
         <div class="alert alert-info text-center">Sua cesta está vazia!</div>
       </ng-template>
     </div>
-    
+
     <div class="col-md-4" *ngIf="lista.length > 0">
       <div class="card">
         <div class="card-header bg-success text-white">Resumo</div>

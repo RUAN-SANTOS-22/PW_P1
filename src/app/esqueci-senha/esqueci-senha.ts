@@ -14,11 +14,11 @@ export class EsqueciSenha {
 
   recuperar() {
     let clienteJson = localStorage.getItem("cliente");
-    
-    if(clienteJson) {
+
+    if (clienteJson) {
       let cliente = JSON.parse(clienteJson);
-      
-      if(this.email === cliente.email) {
+
+      if (this.email === cliente.email) {
         this.mensagem = "Sua senha é: " + cliente.senha;
       } else {
         this.mensagem = "Email não encontrado!";

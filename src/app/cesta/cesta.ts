@@ -15,9 +15,9 @@ export class Cesta {
   lista: ItemCesta[] = [];
   total: number = 0;
 
-  ngOnInit(){
+  ngOnInit() {
     let json = localStorage.getItem("cesta");
-    if(json==null){
+    if (json == null) {
       this.mensagem = "Sua cesta esta vazia!!!";
     } else {
       this.lista = JSON.parse(json);
@@ -25,9 +25,9 @@ export class Cesta {
     }
   }
 
-  calculaTotal(){
+  calculaTotal() {
     this.total = 0
-    for(let obj of this.lista){
+    for (let obj of this.lista) {
       this.total = this.total + obj.valor;
     }
   }
@@ -36,21 +36,21 @@ export class Cesta {
     return produto.promo < produto.valor ? produto.promo : produto.valor;
   }
 
-  aumentarQuantidade(item: ItemCesta){
+  aumentarQuantidade(item: ItemCesta) {
     item.quantidade++;
     let valorUnitario = this.getValorProduto(item.produto);
     item.valor = item.quantidade * valorUnitario;
     this.atualizarCesta();
   }
 
-  diminuirQuantidade(item: ItemCesta){
-    if(item.quantidade > 1){
+  diminuirQuantidade(item: ItemCesta) {
+    if (item.quantidade > 1) {
       item.quantidade--;
       let valorUnitario = this.getValorProduto(item.produto);
       item.valor = item.quantidade * valorUnitario;
       this.atualizarCesta();
     } else {
-      if(confirm("Deseja remover este item da cesta?")){
+      if (confirm("Deseja remover este item da cesta?")) {
         let index = this.lista.indexOf(item);
         this.lista.splice(index, 1);
         this.atualizarCesta();
@@ -58,15 +58,15 @@ export class Cesta {
     }
   }
 
-  removerItem(index: number){
-    if(confirm("Deseja remover este item da cesta?")){
+  removerItem(index: number) {
+    if (confirm("Deseja remover este item da cesta?")) {
       this.lista.splice(index, 1);
       this.atualizarCesta();
     }
   }
 
-  limparCesta(){
-    if(confirm("Tem certeza que deseja cancelar toda a compra?")){
+  limparCesta() {
+    if (confirm("Tem certeza que deseja cancelar toda a compra?")) {
       localStorage.removeItem("cesta");
       this.lista = [];
       this.total = 0;
@@ -74,10 +74,10 @@ export class Cesta {
     }
   }
 
-  atualizarCesta(){
+  atualizarCesta() {
     localStorage.setItem("cesta", JSON.stringify(this.lista));
     this.calculaTotal();
-    if(this.lista.length == 0){
+    if (this.lista.length == 0) {
       this.mensagem = "Sua cesta esta vazia!!!";
       localStorage.removeItem("cesta");
     }
@@ -85,21 +85,18 @@ export class Cesta {
 
 
   finalizarPedido() {
-    // Salvar pedido no localStorage
     let pedido = {
-        itens: this.lista,
-        total: this.total,
-        data: new Date().toISOString()
+      itens: this.lista,
+      total: this.total,
+      data: new Date().toISOString()
     };
     localStorage.setItem("ultimoPedido", JSON.stringify(pedido));
-    
-    // Limpar cesta
+
     localStorage.removeItem("cesta");
-    
+
     this.mensagem = "Pedido finalizado com sucesso!";
     this.lista = [];
     this.total = 0;
-    //location.href = "confirmacao"; testar
-    
-}
+
+  }
 }

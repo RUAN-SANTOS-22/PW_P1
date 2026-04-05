@@ -13,17 +13,16 @@ export class CadastroCliente {
   mensagem: String = "";
   obj: Cliente = new Cliente();
 
-    gravar(){
-    // Verificar se email já existe
+  gravar() {
     let clienteExistente = localStorage.getItem("cliente");
-    if(clienteExistente) {
+    if (clienteExistente) {
       let cliente = JSON.parse(clienteExistente);
-      if(cliente.email === this.obj.email) {
+      if (cliente.email === this.obj.email) {
         this.mensagem = "Email já cadastrado!";
         return;
       }
     }
-    
+
     this.mensagem = "O seu cadastro foi gravado com sucesso!";
     let json = JSON.stringify(this.obj);
     localStorage.setItem("cliente", json);

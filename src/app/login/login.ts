@@ -4,23 +4,23 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
-  imports: [CommonModule, FormsModule],
-  templateUrl: './login.html',
-  styleUrl: './login.css'
+    selector: 'app-login',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './login.html',
+    styleUrl: './login.css'
 })
 export class Login {
     public mensagem: String = "";
     public email: string = "";
     public senha: string = "";
-  
-    public entrar(){
+
+    public entrar() {
         let clienteJson = localStorage.getItem("cliente");
-        
-        if(clienteJson) {
+
+        if (clienteJson) {
             let cliente = JSON.parse(clienteJson);
-            
-            if(this.email === cliente.email && this.senha === cliente.senha) {
+
+            if (this.email === cliente.email && this.senha === cliente.senha) {
                 this.mensagem = "Seja bem vindo ao site!";
                 localStorage.setItem("usuarioLogado", "true");
             } else {

@@ -7,12 +7,12 @@
         </div>
         <div class="card-body p-4">
           <div *ngIf="mensagem" class="alert alert-success">{{mensagem}}</div>
-          
+
           <div class="mb-2">
             <label class="form-label">Nome</label>
             <input type="text" class="form-control" [(ngModel)]="obj.nome">
           </div>
-          
+
           <div class="row">
             <div class="col-md-6 mb-2">
               <label class="form-label">Email</label>
@@ -23,7 +23,7 @@
               <input type="text" class="form-control" [(ngModel)]="obj.documento">
             </div>
           </div>
-          
+
           <div class="row">
             <div class="col-md-6 mb-2">
               <label class="form-label">Telefone</label>
@@ -34,17 +34,17 @@
               <input type="date" class="form-control" [(ngModel)]="obj.dataNascimento">
             </div>
           </div>
-          
+
           <div class="mb-2">
             <label class="form-label">Endereço</label>
             <textarea class="form-control" rows="2" [(ngModel)]="obj.logradouro"></textarea>
           </div>
-          
+
           <div class="mb-3">
             <label class="form-label">Senha</label>
             <input type="password" class="form-control" [(ngModel)]="obj.senha">
           </div>
-          
+
           <button class="btn btn-success w-100" (click)="gravar()">Cadastrar</button>
         </div>
       </div>

@@ -8,19 +8,22 @@
     </div>
     <div class="carousel-inner rounded-3">
       <div class="carousel-item active">
-        <img src="frutaBanner.png" class="d-block w-100" style="height: 180px; object-fit: cover;" onerror="this.src='logo.png'">
+        <img src="frutaBanner.png" class="d-block w-100" style="height: 180px; object-fit: cover;"
+          onerror="this.src='logo.png'">
         <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
           <h5>Frutas Frescas</h5>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="descontoBanner.png" class="d-block w-100" style="height: 180px; object-fit: cover;" onerror="this.src='logo.png'">
+        <img src="descontoBanner.png" class="d-block w-100" style="height: 180px; object-fit: cover;"
+          onerror="this.src='logo.png'">
         <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
           <h5>Ofertas Especiais</h5>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="qualidadeBanner.png" class="d-block w-100" style="height: 180px; object-fit: cover;" onerror="this.src='logo.png'">
+        <img src="qualidadeBanner.png" class="d-block w-100" style="height: 180px; object-fit: cover;"
+          onerror="this.src='logo.png'">
         <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
           <h5>Produtos de qualidade</h5>
         </div>
@@ -44,14 +47,13 @@
   <div class="row g-3">
     <div *ngFor="let obj of lista" class="col-6 col-md-4 col-lg-3">
       <div class="card h-100 shadow-sm">
-        <div *ngIf="obj.promo < obj.valor" class="position-absolute top-0 start-0 bg-warning text-dark px-2 py-1 m-2 rounded small">
+        <div *ngIf="obj.promo < obj.valor"
+          class="position-absolute top-0 start-0 bg-warning text-dark px-2 py-1 m-2 rounded small">
           -{{ ((obj.valor - obj.promo) / obj.valor * 100).toFixed(0) }}%
         </div>
-        <img src="{{obj.nome}}.png" 
-             class="card-img-top p-3" 
-             style="height: 150px; object-fit: contain; cursor: pointer;"
-             (click)="redirecionar(obj);"
-             onerror="this.src='logo.png'">
+        <img src="{{obj.nome}}.png" class="card-img-top p-3"
+          style="height: 150px; object-fit: contain; cursor: pointer;" (click)="redirecionar(obj);"
+          onerror="this.src='logo.png'">
         <div class="card-body text-center">
           <h6 class="card-title fw-bold">{{obj.nome}}</h6>
           <div *ngIf="obj.promo >= obj.valor" class="text-success fw-bold">

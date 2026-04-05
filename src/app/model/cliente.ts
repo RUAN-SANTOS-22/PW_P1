@@ -3,7 +3,7 @@ export class Cliente {
     public email: string = "";
     public documento: string = "";
     public telefone: string = "";
-    public logradouro: string = ""; 
+    public logradouro: string = "";
     public senha: string = "";
     public dataNascimento: string = "";
 }

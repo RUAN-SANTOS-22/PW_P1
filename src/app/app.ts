@@ -14,7 +14,7 @@ export class App {
 
   buscar(event: Event) {
     event.preventDefault();
-    if(this.termoBusca.trim() != ""){
+    if (this.termoBusca.trim() != "") {
       localStorage.setItem("termoBusca", this.termoBusca);
       location.href = "busca";
     }

@@ -17,8 +17,7 @@ export class Contato {
     let json = JSON.stringify(this.obj);
     localStorage.setItem("meuContato", json);
     this.alerta = "Sua mensagem foi enviada com sucesso!";
-    
-    // Limpar formulário após envio
+
     this.obj = new ContatoModel();
   }
 }

@@ -3,14 +3,14 @@
     <div class="container flex-column d-none d-md-block">
       <div class="row w-100">
         <div class="col-2 d-none d-sm-block">
-          <a class="navbar-brand" href="vitrine">
-            <img src="logo.png" alt="Logo" style="width: 80px;">
-            <span class="fw-bold">HortaFresh</span>
+          <a class="navbar-brand text-center p-0 m-0" href="vitrine">
+            <img src="logo.png" alt="Logo" class="d-block mx-auto" style="width: 80px;">
+            <span class="fw-bold d-block pb-1">HortaFresh</span>
           </a>
         </div>
 
         <div class="col-10">
-          
+
           <div class="row">
             <div class="d-flex w-100 align-items-center justify-content-evenly m-2 me-0">
               <form class="d-flex w-50" (submit)="buscar($event)">
@@ -26,16 +26,16 @@
           </div>
 
           <div class="row">
-            <div class="w-100 border-top pt-0 d-flex align-items-center">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                  <li class="nav-item"><a class="nav-link px-3" href="vitrine/">Vitrine</a></li>
-                  <li class="nav-item"><a class="nav-link px-3" href="cadastro">Cadastro</a></li>
-                  <li class="nav-item"><a class="nav-link px-3" href="login">Entrar</a></li>
-                  <li class="nav-item"><a class="nav-link px-3" href="fale">Fale Conosco</a></li>
-                  <li class="nav-item"><a class="nav-link px-3" href="cesta">Carrinho</a></li>
-                </ul>
+            <div class="w-100 border-top d-flex align-items-center" style="height: 60px;">
+              <ul class="navbar-nav w-100 d-flex justify-content-around">
+                <li class="nav-item"><a class="nav-link px-3" href="vitrine/">Vitrine</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="cadastro">Cadastro</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="login">Entrar</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="fale">Fale Conosco</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="cesta">Carrinho</a></li>
+              </ul>
             </div>
-          </div>    
+          </div>
         </div>
       </div>
     </div>
@@ -43,12 +43,12 @@
     <div class="d-flex align-items-center justify-content-around w-100 px-5 my-3 d-md-none"> <!-- telas pequenas -->
 
       <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
-         <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
 
-       <form class="d-flex w-50 search-mobile" (submit)="buscar($event)">
-        <input class="form-control form-control-sm w-100" type="search" placeholder="Buscar..."
-          [(ngModel)]="termoBusca" name="busca" style="width: 150px;">
+      <form class="d-flex w-50 search-mobile" (submit)="buscar($event)">
+        <input class="form-control form-control-sm w-100" type="search" placeholder="Buscar..." [(ngModel)]="termoBusca"
+          name="busca" style="width: 150px;">
         <button class="btn btn-sm btn-light ms-1" type="submit">Buscar</button>
       </form>
       <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral">
@@ -57,14 +57,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
 
-     
+
         <div class="offcanvas-body">
           <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#">Vitrine</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Cadastro</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Fale Conosco</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Carrinho</a></li>
+            <li class="nav-item"><a class="nav-link" href="vitrine/">Vitrine</a></li>
+            <li class="nav-item"><a class="nav-link" href="cadastro/">Cadastro</a></li>
+            <li class="nav-item"><a class="nav-link" href="login/">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="fale/">Fale Conosco</a></li>
+            <li class="nav-item"><a class="nav-link" href="cesta/">Carrinho</a></li>
           </ul>
         </div>
       </div>
@@ -87,8 +87,8 @@
 
 <router-outlet />
 
-<footer id="rodape" class="mt-5 py-3 text-white text-center">
+<footer id="rodape" class="mt-5 pt-3 text-white text-center" style="height: 80px;">
   <div class="container">
-    <p class="mb-0">FrutiFresh - Frutas Frescas | contato@frutifresh.com | (11) 99999-9999</p>
+    <p class="mb-0">HortaFresh - Frutas Frescas | contato@Hortafresh.com | (11) 99999-9999</p>
   </div>
 </footer>

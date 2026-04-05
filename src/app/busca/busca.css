@@ -1,6 +1,6 @@
 .card-img-top {
   height: 400px;
-  object-fit: contain; /* preenche tudo (pode cortar um pouco) */
+  object-fit: contain;
 }
 h1 {
     text-align: center;

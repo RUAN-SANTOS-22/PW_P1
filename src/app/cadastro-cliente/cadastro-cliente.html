@@ -1,20 +1,53 @@
-<!-- cadastro-cliente.html -->
-<div class="container bg-light mt-5 pt-4 ps-3 pb-4">
-    <h2>Cadastro de Cliente</h2>
-    
-    <div class="row justify-content-center">
-        <div class="card col-sm-10 col-md-6 col-lg-6 col-xl-6 col-xxl-6 p-4 m-4">
-            <h4>{{mensagem}}</h4>
-            nome: <br><input type="text" class="form-control mb-2" [(ngModel)]="obj.nome"><br>
-            email: <br><input type="email" class="form-control mb-2" [(ngModel)]="obj.email"><br>
-            documento: <br><input type="text" class="form-control mb-2" [(ngModel)]="obj.documento"><br> 
-            telefone: <br><input type="text" class="form-control mb-2" [(ngModel)]="obj.telefone"><br>
-            endereço: <br> <textarea class="form-control mb-2" [(ngModel)]="obj.logradouro"></textarea><br>
-            senha: <br><input type="password" class="form-control mb-2" [(ngModel)]="obj.senha"><br>
-            data de nascimento: <br><input type="date" class="form-control mb-2" [(ngModel)]="obj.dataNascimento"><br> <br>
-            <div class="d-flex align-self-center">
-                <button (click)="gravar();" class="btn btn-outline-dark">Gravar</button>
-            </div>
+<div class="container d-flex justify-content-center align-items-center py-5 mt-5">
+  <div class="row justify-content-center min-vh-100 w-100">
+    <div class="col-11 col-sm-10 col-md-8 col-lg-6">
+      <div class="card shadow">
+        <div class="card-header bg-success text-white text-center">
+          <h4 class="mb-0">Cadastro de Cliente</h4>
         </div>
+        <div class="card-body p-4">
+          <div *ngIf="mensagem" class="alert alert-success">{{mensagem}}</div>
+          
+          <div class="mb-2">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" [(ngModel)]="obj.nome">
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6 mb-2">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" [(ngModel)]="obj.email">
+            </div>
+            <div class="col-md-6 mb-2">
+              <label class="form-label">Documento</label>
+              <input type="text" class="form-control" [(ngModel)]="obj.documento">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6 mb-2">
+              <label class="form-label">Telefone</label>
+              <input type="text" class="form-control" [(ngModel)]="obj.telefone">
+            </div>
+            <div class="col-md-6 mb-2">
+              <label class="form-label">Data Nasc.</label>
+              <input type="date" class="form-control" [(ngModel)]="obj.dataNascimento">
+            </div>
+          </div>
+          
+          <div class="mb-2">
+            <label class="form-label">Endereço</label>
+            <textarea class="form-control" rows="2" [(ngModel)]="obj.logradouro"></textarea>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Senha</label>
+            <input type="password" class="form-control" [(ngModel)]="obj.senha">
+          </div>
+          
+          <button class="btn btn-success w-100" (click)="gravar()">Cadastrar</button>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

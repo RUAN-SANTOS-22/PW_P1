@@ -1,25 +1,33 @@
-<!-- login.html -->
-<div class="container bg-light vh-100 mt-5 pt-4 ps-3 pb-4">
-    <h2>Login</h2>
-    <p>Preencha os campos para fazer o login.</p>
-    
-    <div class="row justify-content-center">
-        <div class="card col-sm-10 col-md-8 col-lg-5 col-xl-5 col-xxl-5 p-4 m-4">
-            <h4>{{mensagem}}</h4>
-            email: 
-            <input type="email" class="form-control mb-2" [(ngModel)]="email" placeholder="seu email cadastrado" />
-            <br>
-            senha: 
-            <input type="password" class="form-control mb-2" [(ngModel)]="senha" placeholder="sua senha" />
-            <br>
-            <div class="d-flex align-self-center">
-                <button class="btn btn-outline-dark" (click)="entrar()">Entrar</button>
-            </div>
-            <a class="align-self-center" href="cadastro">cadastrar-se</a>
-            <br>
-            <a href="esqueci-senha">esqueci minha senha</a>
+<div class="container d-flex justify-content-center  align-items-center py-5 mt-5">
+  <div class="row justify-content-center min-vh-100 w-100">
+    <div class="col-11 col-sm-8 col-md-6 col-lg-5">
+      <div class="card shadow">
+
+        <div class="card-header bg-success text-center">
+          <h4 class="text-white">Login</h4>
         </div>
+        <div class="card-body p-4">
+          <div *ngIf="mensagem" class="alert alert-warning">{{mensagem}}</div>
+          
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" [(ngModel)]="email" placeholder="seu@email.com">
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Senha</label>
+            <input type="password" class="form-control" [(ngModel)]="senha" placeholder="*************">
+          </div>
+          
+          <button class="btn btn-success w-50 mb-3 d-block mx-auto" (click)="entrar()">Entrar</button>
+          
+          <div class="text-center">
+            <a href="cadastro" class="text-decoration-none me-3">Criar conta</a>
+            <a href="esqueci-senha" class="text-decoration-none">Esqueci a senha</a>
+          </div>
+
+        </div>
+      </div>
     </div>
+  </div>
 </div>
-
-

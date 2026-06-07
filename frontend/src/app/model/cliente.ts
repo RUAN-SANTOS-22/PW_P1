@@ -1,9 +1,11 @@
+// frontend/src/app/model/cliente.ts
 export class Cliente {
-    public nome: string = "";
-    public email: string = "";
-    public documento: string = "";
-    public telefone: string = "";
-    public logradouro: string = "";
-    public senha: string = "";
-    public dataNascimento: string = "";
+    codigo: number = 0;
+    nome: string = "";
+    email: string = "";
+    documento: string = "";
+    telefone: string = "";
+    logradouro: string = "";
+    senha: string = "";
+    dataNascimento: string = "";
 }

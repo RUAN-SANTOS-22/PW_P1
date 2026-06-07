@@ -2,30 +2,30 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Cliente } from '../model/cliente';
+import { ClienteService } from '../service/cliente.service';
 
 @Component({
-  selector: 'app-cadastro-cliente',
-  imports: [CommonModule, FormsModule],
-  templateUrl: './cadastro-cliente.html',
-  styleUrl: './cadastro-cliente.css',
+    selector: 'app-cadastro-cliente',
+    standalone: true,
+    imports: [CommonModule, FormsModule],
+    templateUrl: './cadastro-cliente.html',
+    styleUrls: ['./cadastro-cliente.css']
 })
 export class CadastroCliente {
-  mensagem: String = "";
-  obj: Cliente = new Cliente();
+    mensagem: string = "";
+    obj: Cliente = new Cliente();
 
-  gravar() {
-    let clienteExistente = localStorage.getItem("cliente");
-    if (clienteExistente) {
-      let cliente = JSON.parse(clienteExistente);
-      if (cliente.email === this.obj.email) {
-        this.mensagem = "Email já cadastrado!";
-        return;
-      }
+    constructor(private service: ClienteService) { }
+
+    gravar() {
+        this.service.gravar(this.obj).subscribe({
+            next: () => {
+                this.mensagem = "Cadastro realizado com sucesso!";
+                this.obj = new Cliente();
+            },
+            error: () => {
+                this.mensagem = "Erro ao cadastrar. Tente mais tarde.";
+            }
+        });
     }
-
-    this.mensagem = "O seu cadastro foi gravado com sucesso!";
-    let json = JSON.stringify(this.obj);
-    localStorage.setItem("cliente", json);
-  }
 }
-

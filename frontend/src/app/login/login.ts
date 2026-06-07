@@ -1,33 +1,46 @@
-// login.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Cliente } from '../model/cliente';
+import { ClienteService } from '../service/cliente.service';
 
 @Component({
     selector: 'app-login',
+    standalone: true,
     imports: [CommonModule, FormsModule],
     templateUrl: './login.html',
-    styleUrl: './login.css'
+    styleUrls: ['./login.css']
 })
 export class Login {
-    public mensagem: String = "";
-    public email: string = "";
-    public senha: string = "";
+    mensagem: string = "";
+    email: string = "";
+    senha: string = "";
 
-    public entrar() {
-        let clienteJson = localStorage.getItem("cliente");
+    constructor(private service: ClienteService, private router: Router) { }
 
-        if (clienteJson) {
-            let cliente = JSON.parse(clienteJson);
-
-            if (this.email === cliente.email && this.senha === cliente.senha) {
-                this.mensagem = "Seja bem vindo ao site!";
-                localStorage.setItem("usuarioLogado", "true");
-            } else {
-                this.mensagem = "Email ou senha incorretos!";
-            }
-        } else {
-            this.mensagem = "Nenhum usuário cadastrado!";
+    entrar() {
+        if (!this.email || !this.senha) {
+            this.mensagem = "Preencha email e senha!";
+            return;
         }
+
+        const credencial = new Cliente();
+        credencial.email = this.email;
+        credencial.senha = this.senha;
+
+        this.service.fazerLogin(credencial).subscribe({
+            next: (cliente) => {
+                if (cliente && cliente.codigo > 0) {
+                    localStorage.setItem("clienteLogado", JSON.stringify(cliente));
+                    this.router.navigate(['/vitrine']);
+                } else {
+                    this.mensagem = "Email ou senha inválidos!";
+                }
+            },
+            error: () => {
+                this.mensagem = "Erro na comunicação com o servidor.";
+            }
+        });
     }
 }

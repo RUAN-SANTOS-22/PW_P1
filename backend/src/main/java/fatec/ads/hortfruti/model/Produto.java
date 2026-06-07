@@ -17,6 +17,5 @@ public class Produto {
     private double valor;
     private double promo;
     private int quantidade;
-    private int destaque;
     private String keywords;
 }

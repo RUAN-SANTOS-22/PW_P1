@@ -1,3 +1,4 @@
+// frontend/src/app/model/produto.ts
 export class Produto {
     codigo: number = 0;
     nome: string = "";

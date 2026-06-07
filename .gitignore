@@ -42,3 +42,66 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# ===================
+# IDE e editores
+# ===================
+.vscode/
+.idea/
+*.iml
+.settings/
+.classpath
+.project
+*.swp
+*.swo
+*~
+
+# ===================
+# Backend (Java / Spring / Maven)
+# ===================
+# Diretórios de compilação
+target/
+classes/
+*.class
+
+# Arquivos de log
+*.log
+logs/
+
+# Arquivos de configuração locais (que contém senhas, etc.)
+application-local.properties
+application-dev.properties
+
+# Dependências Maven (não precisa ignorar, mas se quiser)
+# A pasta .m2 normalmente fica fora do projeto, então não precisa
+
+# ===================
+# Frontend (Angular / Node)
+# ===================
+frontend/node_modules/
+frontend/.angular/
+frontend/dist/
+frontend/tmp/
+frontend/out-tsc/
+frontend/*.js
+frontend/*.map
+frontend/*.tsbuildinfo
+
+# Arquivos de ambiente do frontend
+frontend/src/environments/environment.prod.ts
+frontend/src/environments/environment.ts
+
+# ===================
+# Arquivos do sistema operacional
+# ===================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===================
+# Outros
+# ===================
+*.bak
+*.tmp
+*.swp
+*.swo

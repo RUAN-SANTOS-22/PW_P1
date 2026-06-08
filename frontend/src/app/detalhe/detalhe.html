@@ -16,6 +16,7 @@
           <div *ngIf="obj.promo >= obj.valor" class="mt-3">
             <span class="fs-2 text-success fw-bold">R$ {{obj.valor | number:'1.2-2'}}</span>
           </div>
+          <p class="mt-2">Quantidade disponível: <strong>{{obj.quantidade}}</strong></p>
 
           <div class="mt-4">
             <button *ngIf="obj.quantidade>0" class="btn btn-success btn-lg px-5" (click)="adicionarItemCesta(obj)">

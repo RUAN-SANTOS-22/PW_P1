@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Produto } from '../model/produto';
 import { ProdutoService } from '../service/produto.service';
@@ -16,22 +16,23 @@ export class Busca implements OnInit {
     mensagem: string = "";
     lista: Produto[] = [];
 
-    constructor(private service: ProdutoService, private router: Router) { }
+    constructor(private service: ProdutoService, private router: Router,private cdr: ChangeDetectorRef) { }
 
     ngOnInit() {
         const termo = localStorage.getItem("termoBusca");
         if (termo && termo.trim() !== "") {
             this.service.fazerBusca(termo).subscribe({
                 next: (dados) => {
-                    this.lista = dados;
-                    if (this.lista.length === 0) {
-                        this.mensagem = `Nenhum produto encontrado para: ${termo}`;
-                    }
-                    localStorage.removeItem("termoBusca");
-                },
-                error: () => {
-                    this.mensagem = "Erro na busca. Tente mais tarde.";
-                }
+            this.lista = [...dados]; // <- nova referência
+            this.cdr.detectChanges(); // <- força re-renderização
+            if (this.lista.length === 0) {
+                this.mensagem = `Nenhum produto encontrado para: ${termo}`;
+            }
+            localStorage.removeItem("termoBusca");
+        },
+        error: () => {
+            this.mensagem = "Erro na busca. Tente mais tarde.";
+        }
             });
         } else {
             this.router.navigate(['/vitrine']);

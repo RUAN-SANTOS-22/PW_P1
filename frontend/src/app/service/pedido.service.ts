@@ -11,15 +11,15 @@ export class PedidoService {
     constructor(private http: HttpClient) { }
 
     finalizarPedido(clienteId: number, itensCesta: ItemCesta[], total: number): Observable<any> {
-        const payload: PedidoRequest = {
-            clienteId: clienteId,
-            total: total,
-            itens: itensCesta.map(item => ({
-                produtoId: item.produto.codigo,
-                quantidade: item.quantidade,
-                preco: item.valor
-            }))
-        };
-        return this.http.post(this.apiUrl, payload);
-    }
+    const payload: PedidoRequest = {
+        clienteId: clienteId,
+        total: total,
+        itens: itensCesta.map(item => ({
+            produtoId: item.produto.codigo,
+            quantidade: item.quantidade,
+            preco: item.valor / item.quantidade
+        }))
+    };
+    return this.http.post(this.apiUrl, payload, { responseType: 'text' });
+}
 }

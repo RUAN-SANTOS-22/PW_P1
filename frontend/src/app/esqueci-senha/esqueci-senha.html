@@ -10,7 +10,7 @@
           <div *ngIf="mensagem" class="alert alert-info">{{mensagem}}</div>
 
         
-          <div *ngIf="!emailValidado">
+          <div>
             <div class="mb-3">
               <label class="form-label">Email cadastrado</label>
               <input type="email" class="form-control" [(ngModel)]="email" placeholder="seu@email.com">
@@ -23,24 +23,6 @@
             </div>
           </div>
 
-          
-          <div *ngIf="emailValidado">
-            <div class="mb-3">
-              <label class="form-label">Nova Senha</label>
-              <input type="password" class="form-control" [(ngModel)]="novaSenha" placeholder="Digite a nova senha">
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Confirmar Nova Senha</label>
-              <input type="password" class="form-control" [(ngModel)]="confirmarSenha" placeholder="Confirme a nova senha">
-            </div>
-
-            <button class="btn btn-success w-100 mb-3" (click)="atualizarSenha()">Atualizar Senha</button>
-
-            <div class="text-center">
-              <a href="login" class="text-decoration-none">Voltar para o login</a>
-            </div>
-          </div>
         </div>
       </div>
     </div>

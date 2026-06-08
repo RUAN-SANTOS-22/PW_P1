@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cliente } from '../model/cliente';
+import { ContatoModel } from '../model/contato';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,11 @@ export class ClienteService {
 
   fazerLogin(obj: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(`${this.apiUrl}/fazerLogin`, obj);
+  }
+  esqueceuSenha(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/esqueceuSenha`, { email });
+}
+  enviarContato(obj: ContatoModel): Observable<any> {
+      return this.http.post('http://localhost:8081/api/contato', obj);
   }
 }

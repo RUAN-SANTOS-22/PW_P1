@@ -40,12 +40,12 @@ public class ProdutoController {
     }
 
     @GetMapping("/api/produto/vitrine")
-    public List<Produto> vitrine() {
+    public List<Produto> carregarVitrine() {
         return bd.carregarVitrine();
     }
 
     @GetMapping("/api/produto/busca/{termo}")
-    public List<Produto> buscar(@PathVariable String termo) {
+    public List<Produto> fazerBuscar(@PathVariable String termo) {
         return bd.fazerBusca("%" + termo + "%");
     }
 }

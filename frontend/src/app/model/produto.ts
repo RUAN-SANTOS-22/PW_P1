@@ -7,4 +7,5 @@ export class Produto {
     promo: number = 0;
     quantidade: number = 0;
     keywords: string = "";
+    destaque: number = 0;
 }

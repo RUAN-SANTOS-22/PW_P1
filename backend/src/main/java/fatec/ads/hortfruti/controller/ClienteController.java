@@ -26,29 +26,29 @@ public class ClienteController {
                 "Seu cadastro foi realizado com sucesso. Obrigado pela preferência.");
     }
 
-    @PutMapping("/api/cliente")
-    public void alterar(@RequestBody Cliente obj) {
-        bd.save(obj);
-    }
-
-    @GetMapping("/api/cliente/{codigo}")
-    public Cliente carregar(@PathVariable int codigo) {
-        return bd.findById(codigo).orElse(new Cliente());
-    }
-
-    @DeleteMapping("/api/cliente/{codigo}")
-    public void remover(@PathVariable int codigo) {
-        bd.deleteById(codigo);
-    }
-
-    @GetMapping("/api/clientes")
-    public List<Cliente> listar() {
-        return bd.findAll();
-    }
-
     @PostMapping("/api/cliente/fazerLogin")
-    public Cliente fazerLogin(@RequestBody Cliente obj) {
+    public Cliente fazerLogin(@RequestBody Cliente obj){
         Optional<Cliente> retorno = bd.fazerLogin(obj.getEmail(), obj.getSenha());
-        return retorno.orElse(new Cliente());
+        if(retorno.isPresent()){
+            return retorno.get();
+        } else {
+            return new Cliente();
+        }
+    }
+    @PostMapping("/api/cliente/esqueceuSenha")
+    public void esqueceuSenha(@RequestBody Cliente obj) {
+        Optional<Cliente> retorno = bd.buscarPorEmail(obj.getEmail());
+        if (retorno.isPresent()) {
+            Cliente cliente = retorno.get();
+            ferramenta.enviarEmail(cliente.getEmail(),
+                "Recuperação de senha - HortaFresh",
+                "Olá " + cliente.getNome() + ", sua senha é: " + cliente.getSenha());
+        }
+    }
+    @PostMapping("/api/contato")
+    public void contato(@RequestBody java.util.Map<String, String> obj) {
+        ferramenta.enviarEmail("hortafresh@email.com",
+            "Contato - " + obj.get("assunto"),
+            "De: " + obj.get("nome") + " <" + obj.get("email") + ">\n\n" + obj.get("mensagem"));
     }
 }

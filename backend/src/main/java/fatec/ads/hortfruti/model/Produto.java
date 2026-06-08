@@ -18,4 +18,5 @@ public class Produto {
     private double promo;
     private int quantidade;
     private String keywords;
+    private int destaque;
 }

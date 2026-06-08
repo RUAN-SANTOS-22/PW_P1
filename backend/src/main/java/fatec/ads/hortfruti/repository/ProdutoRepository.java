@@ -9,9 +9,9 @@ import java.util.List;
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
    
-    @Query(value = "SELECT * FROM produto WHERE quantidade > 0 ORDER BY nome", nativeQuery = true)
+    @Query(value = "SELECT * FROM produto ORDER BY nome", nativeQuery = true)
     List<Produto> carregarVitrine();
-
+    
     @Query(value = "SELECT * FROM produto WHERE keywords LIKE ?1 OR descritivo LIKE ?1", nativeQuery = true)
     List<Produto> fazerBusca(String termo);
 }

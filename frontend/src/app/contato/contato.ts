@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ContatoModel } from '../model/contato';
-
+import { ClienteService } from '../service/cliente.service';
 @Component({
   selector: 'app-contato',
   imports: [FormsModule, CommonModule],
@@ -13,11 +13,17 @@ export class Contato {
   public alerta: string = "";
   public obj: ContatoModel = new ContatoModel();
 
-  public enviar() {
-    let json = JSON.stringify(this.obj);
-    localStorage.setItem("meuContato", json);
-    this.alerta = "Sua mensagem foi enviada com sucesso!";
+ constructor(private service: ClienteService) {}
 
-    this.obj = new ContatoModel();
+  enviar() {
+      this.service.enviarContato(this.obj).subscribe({
+          next: () => {
+              this.alerta = "Sua mensagem foi enviada com sucesso!";
+              this.obj = new ContatoModel();
+          },
+          error: () => {
+              this.alerta = "Erro ao enviar mensagem. Tente mais tarde.";
+          }
+      });
   }
 }

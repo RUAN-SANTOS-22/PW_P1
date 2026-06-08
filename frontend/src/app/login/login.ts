@@ -14,33 +14,24 @@ import { ClienteService } from '../service/cliente.service';
 })
 export class Login {
     mensagem: string = "";
-    email: string = "";
-    senha: string = "";
+    obj: Cliente = new Cliente();
 
     constructor(private service: ClienteService, private router: Router) { }
 
     entrar() {
-        if (!this.email || !this.senha) {
-            this.mensagem = "Preencha email e senha!";
-            return;
-        }
-
-        const credencial = new Cliente();
-        credencial.email = this.email;
-        credencial.senha = this.senha;
-
-        this.service.fazerLogin(credencial).subscribe({
-            next: (cliente) => {
-                if (cliente && cliente.codigo > 0) {
-                    localStorage.setItem("clienteLogado", JSON.stringify(cliente));
-                    this.router.navigate(['/vitrine']);
-                } else {
-                    this.mensagem = "Email ou senha inválidos!";
-                }
-            },
-            error: () => {
-                this.mensagem = "Erro na comunicação com o servidor.";
+    this.mensagem = "";
+      this.service.fazerLogin(this.obj).subscribe(
+        (dados) => {
+            this.obj = dados;
+            if(this.obj.codigo==0) {
+              this.mensagem = "usuario ou senha invalidos";
+            } else {
+              localStorage.setItem("clienteLogado", JSON.stringify(this.obj));
+              location.href="./vitrine";
             }
+        },
+        (erro) => {
+            this.mensagem = "Ocorreu um erro, tente mais tarde!";
         });
     }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Produto } from '../model/produto';
 import { ItemCesta } from '../model/item-cesta';
@@ -17,7 +17,7 @@ export class Cesta implements OnInit {
     lista: ItemCesta[] = [];
     total: number = 0;
 
-    constructor(private pedidoService: PedidoService, private router: Router) { }
+    constructor(private pedidoService: PedidoService, private router: Router, private cdr: ChangeDetectorRef) { }
 
     ngOnInit() {
         const json = localStorage.getItem("cesta");
@@ -83,27 +83,27 @@ export class Cesta implements OnInit {
             this.mensagem = "Sua cesta está vazia!";
         }
     }
-
     finalizarPedido() {
-        const clienteJson = localStorage.getItem("clienteLogado");
-        if (!clienteJson) {
-            this.mensagem = "Você precisa estar logado para finalizar o pedido!";
-            this.router.navigate(['/login']);
-            return;
-        }
-
-        const cliente = JSON.parse(clienteJson);
-        this.pedidoService.finalizarPedido(cliente.codigo, this.lista, this.total).subscribe({
-            next: () => {
-                localStorage.removeItem("cesta");
-                this.lista = [];
-                this.total = 0;
-                this.mensagem = "Pedido finalizado com sucesso!";
-                setTimeout(() => this.router.navigate(['/vitrine']), 2000);
-            },
-            error: () => {
-                this.mensagem = "Erro ao finalizar pedido. Tente novamente.";
-            }
-        });
+    const clienteJson = localStorage.getItem("clienteLogado");
+    if (!clienteJson) {
+        this.mensagem = "Você precisa estar logado para finalizar o pedido!";
+        this.router.navigate(['/login']);
+        return;
     }
+
+    const cliente = JSON.parse(clienteJson);
+    this.pedidoService.finalizarPedido(cliente.codigo, this.lista, this.total).subscribe({
+       next: () => {
+        localStorage.removeItem("cesta");
+        this.lista = [];
+        this.total = 0;
+        this.mensagem = "Pedido finalizado com sucesso!";
+        this.cdr.detectChanges();
+        setTimeout(() => this.router.navigate(['/vitrine']), 2000);
+    },
+        error: () => {
+            this.mensagem = "Erro ao finalizar pedido. Tente novamente.";
+        }
+    });
+}
 }

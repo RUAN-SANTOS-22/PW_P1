@@ -1,11 +1,10 @@
-<div class="container  py-5 mt-5">
+<div class="container py-5 mt-5">
   <h2 class="text-center">Carrinho</h2>
-
+ 
   <div class="row min-vh-100 mt-4">
-
+ 
     <div class="col-md-8">
       <div *ngIf="lista.length > 0; else vazio">
-
         <div class="table-responsive">
           <table class="table table-striped table-hover">
             <thead class="table-success">
@@ -15,7 +14,8 @@
                 <th>Qtd</th>
                 <th>Unitário</th>
                 <th>Subtotal</th>
-                <th>
+                <th></th>
+              </tr>
             </thead>
             <tbody>
               <tr *ngFor="let obj of lista; let i = index">
@@ -26,31 +26,55 @@
                   <span class="mx-2">{{obj.quantidade}}</span>
                   <button class="btn btn-sm btn-outline-secondary" (click)="aumentarQuantidade(obj)">+</button>
                 </td>
-                <td>R$ {{ (obj.produto.promo < obj.produto.valor ? obj.produto.promo : obj.produto.valor) |
-                    number:'1.2-2' }}</td>
+                <td>R$ {{ (obj.produto.promo < obj.produto.valor ? obj.produto.promo : obj.produto.valor) | number:'1.2-2' }}</td>
                 <td>R$ {{obj.valor | number:'1.2-2'}}</td>
-                <td><button class="btn btn-sm btn-danger" (click)="removerItem(i)"> X </button></td>
+                <td><button class="btn btn-sm btn-danger" (click)="removerItem(i)">X</button></td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-
+ 
       <ng-template #vazio>
         <div class="alert alert-info text-center">Sua cesta está vazia!</div>
       </ng-template>
     </div>
-
+ 
     <div class="col-md-4">
       <div class="card">
         <div class="card-header bg-success text-white">Resumo</div>
         <div class="card-body">
           <h4 class="text-center">Total: R$ {{ total | number:'1.2-2' }}</h4>
           <div *ngIf="mensagem" class="alert alert-warning mt-2">{{mensagem}}</div>
-          <button class="btn btn-success w-100 mt-2" (click)="finalizarPedido()">Finalizar</button>
-          <button class="btn btn-danger w-100 mt-2" (click)="limparCesta()">Cancelar</button>
+          <button class="btn btn-success w-100 mt-2" (click)="finalizarPedido()" [disabled]="carregando || lista.length === 0">
+            <span *ngIf="carregando" class="spinner-border spinner-border-sm me-2"></span>
+            {{ carregando ? 'Finalizando...' : 'Finalizar' }}
+          </button>
+          <button class="btn btn-danger w-100 mt-2" (click)="limparCesta()" [disabled]="carregando">Cancelar</button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- Toast container -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+  <div id="toastCestaSucesso" class="toast align-items-center text-bg-success border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">Pedido finalizado com sucesso! 🎉</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+  <div id="toastCestaErro" class="toast align-items-center text-bg-danger border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">{{ mensagemToast }}</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+  <div id="toastCestaAviso" class="toast align-items-center text-bg-warning border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">{{ mensagemToast }}</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
     </div>
   </div>
 </div>

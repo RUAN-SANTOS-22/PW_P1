@@ -6,41 +6,61 @@
           <h4 class="mb-0">Fale Conosco</h4>
         </div>
         <div class="card-body p-4">
-          <div *ngIf="alerta" class="alert alert-success">{{alerta}}</div>
-
+ 
           <div class="mb-2">
             <label class="form-label">Nome</label>
-            <input type="text" class="form-control" [(ngModel)]="obj.nome">
+            <input type="text" class="form-control" [(ngModel)]="obj.nome" placeholder="Seu nome">
           </div>
-
+ 
           <div class="mb-2">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" [(ngModel)]="obj.email">
+            <label class="form-label">Email <span class="text-danger">*</span></label>
+            <input type="email" class="form-control" [(ngModel)]="obj.email" placeholder="seu@email.com">
           </div>
-
+ 
           <div class="mb-2">
-            <label class="form-label">Assunto</label>
+            <label class="form-label">Assunto <span class="text-danger">*</span></label>
             <select class="form-select" [(ngModel)]="obj.assunto">
+              <option value="">-- Selecione um assunto --</option>
               <option>Duvidas com produtos</option>
               <option>Duvidas com pedidos</option>
               <option>Problemas gerais</option>
               <option>Criticas e sugestões</option>
             </select>
           </div>
-
+ 
           <div class="mb-2">
-            <label class="form-label">Mensagem</label>
-            <textarea class="form-control" rows="4" [(ngModel)]="obj.mensagem"></textarea>
+            <label class="form-label">Mensagem <span class="text-danger">*</span></label>
+            <textarea class="form-control" rows="4" [(ngModel)]="obj.mensagem" placeholder="Escreva sua mensagem..."></textarea>
           </div>
-
+ 
           <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" [(ngModel)]="obj.copia">
             <label class="form-check-label">Receber cópia por email</label>
           </div>
-
-          <button class="btn btn-success w-100" (click)="enviar()">Enviar</button>
+ 
+          <button class="btn btn-success w-100" (click)="enviar()" [disabled]="carregando">
+            <span *ngIf="carregando" class="spinner-border spinner-border-sm me-2"></span>
+            {{ carregando ? 'Enviando...' : 'Enviar' }}
+          </button>
+ 
         </div>
       </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- Toast container -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+  <div id="toastContatoSucesso" class="toast align-items-center text-bg-success border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">Mensagem enviada com sucesso! Em breve entraremos em contato. ✉️</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+  <div id="toastContatoErro" class="toast align-items-center text-bg-danger border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">{{ mensagemToast }}</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
     </div>
   </div>
 </div>

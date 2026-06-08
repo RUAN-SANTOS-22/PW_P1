@@ -45,9 +45,22 @@
             <input type="password" class="form-control" [(ngModel)]="obj.senha">
           </div>
 
-          <button class="btn btn-success w-100" (click)="gravar()">Cadastrar</button>
+          <button class="btn btn-success w-100" (click)="gravar()" [disabled]="carregando">
+          <span *ngIf="carregando" class="spinner-border spinner-border-sm me-2"></span>
+    {{ carregando ? 'Cadastrando...' : 'Cadastrar' }}
+</button>
         </div>
       </div>
     </div>
   </div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="toastSucesso" class="toast align-items-center text-bg-success border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">
+        Cadastro realizado com sucesso!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
 </div>

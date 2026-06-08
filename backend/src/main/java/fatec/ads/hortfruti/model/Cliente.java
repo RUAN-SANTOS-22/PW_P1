@@ -1,5 +1,6 @@
 package fatec.ads.hortfruti.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,6 +14,7 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     private String nome;
+    @Column(unique = true)
     private String email;
     private String documento;
     private String telefone;
